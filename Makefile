@@ -17,7 +17,8 @@ UNZIP = unzip
 PROTOC_VERSION = 3.6.0
 PROTOC_BASE_URL = https://github.com/google/protobuf/releases/download/v$(PROTOC_VERSION)
 PROTOC = target/protoc-$(PROTOC_VERSION)
-PROTOC_GO = $(PROTOC) -I proto --go_out=plugins=grpc:.
+# PROTOC_GO = $(PROTOC) -I proto --go_out=plugins=grpc:.
+PROTOC_GO = $(PROTOC) -I proto --go_out=. --go-grpc_out=.
 
 MODULE_NAME = github.com/linkerd/linkerd2-proxy-api
 

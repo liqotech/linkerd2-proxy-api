@@ -49,12 +49,20 @@ import "net.proto";
 service Destination {
   // Given a destination, return all addresses in that destination as a long-
   // running stream of updates.
-  rpc Get(GetDestination) returns(stream Update) {}
+  rpc Get(GetEndpoints) returns(stream Update) {}
 
   // Given a destination, return that destination's profile and send an update
   // whenever it changes.
   rpc GetProfile(GetDestination) returns(stream DestinationProfile) {}
 }
+
+message GetEndpoints {
+  string scheme = 1;
+  string path = 2;
+  string context_token = 3;
+  string cluster_id = 4;
+}
+
 
 message GetDestination {
   string scheme = 1;
